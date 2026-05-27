@@ -1,4 +1,4 @@
-export default function BIMFlowPage() {
+﻿export default function BIMFlowPage() {
   return (
     <main style={{ fontFamily: "var(--font-body)", color: "#111827" }}>
       {/* Nav */}
@@ -8,7 +8,7 @@ export default function BIMFlowPage() {
             BIM<span style={{ color: "#6b7280" }}>Flow</span>
           </span>
           <a
-            href="mailto:hello@wikolabs.com?subject=BIMFlow — Demande de démo"
+            href="https://calendly.com/wikolabs" target="_blank" rel="noopener noreferrer"
             style={{ background: "transparent", color: "#9ca3af", padding: "0.4rem 1.1rem", borderRadius: 4, fontWeight: 600, fontSize: "0.8rem", textDecoration: "none", border: "1px solid #374151", textTransform: "uppercase", letterSpacing: "0.08em" }}
           >
             Démo
@@ -30,7 +30,7 @@ export default function BIMFlowPage() {
           </p>
           <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap", alignItems: "center" }}>
             <a
-              href="mailto:hello@wikolabs.com?subject=BIMFlow — Demande de démo"
+              href="https://calendly.com/wikolabs" target="_blank" rel="noopener noreferrer"
               style={{ display: "inline-block", background: "#374151", color: "#f9fafb", padding: "0.75rem 1.75rem", borderRadius: 4, fontWeight: 600, fontSize: "0.9rem", textDecoration: "none", fontFamily: "var(--font-display)", textTransform: "uppercase", letterSpacing: "0.08em" }}
             >
               Démo →
@@ -126,7 +126,7 @@ export default function BIMFlowPage() {
         </h2>
         <p style={{ color: "#9ca3af", marginBottom: "2rem", fontSize: "0.95rem" }}>Intégration possible avec Revit, ArchiCAD, Autodesk Forge et tout système IFC compatible.</p>
         <a
-          href="mailto:hello@wikolabs.com?subject=BIMFlow — Demande de démo"
+          href="https://calendly.com/wikolabs" target="_blank" rel="noopener noreferrer"
           style={{ display: "inline-block", background: "#f9fafb", color: "#111827", padding: "0.9rem 2.5rem", borderRadius: 4, fontWeight: 700, fontSize: "0.95rem", textDecoration: "none", fontFamily: "var(--font-display)", textTransform: "uppercase", letterSpacing: "0.1em" }}
         >
           Demander une démo
