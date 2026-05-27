@@ -30,10 +30,20 @@
           </p>
           <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap", alignItems: "center" }}>
             <a
-              href="https://calendly.com/wikolabs" target="_blank" rel="noopener noreferrer"
+              href="https://calendly.com/wikolabs"
+              target="_blank"
+              rel="noopener noreferrer"
               style={{ display: "inline-block", background: "#374151", color: "#f9fafb", padding: "0.75rem 1.75rem", borderRadius: 4, fontWeight: 600, fontSize: "0.9rem", textDecoration: "none", fontFamily: "var(--font-display)", textTransform: "uppercase", letterSpacing: "0.08em" }}
             >
-              Démo →
+              📅 Réserver un créneau →
+            </a>
+            <a
+              href="https://wa.me/261386626100?text=Bonjour%2C%20je%20souhaite%20discuter%20de%20BIMFlow%20avec%20Wikolabs."
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ display: "inline-block", background: "#25d366", color: "#fff", padding: "0.75rem 1.75rem", borderRadius: 4, fontWeight: 600, fontSize: "0.9rem", textDecoration: "none", fontFamily: "var(--font-display)", textTransform: "uppercase", letterSpacing: "0.08em" }}
+            >
+              💬 WhatsApp →
             </a>
           </div>
         </div>
@@ -125,12 +135,24 @@
           Automatisez votre pipeline BIM
         </h2>
         <p style={{ color: "#9ca3af", marginBottom: "2rem", fontSize: "0.95rem" }}>Intégration possible avec Revit, ArchiCAD, Autodesk Forge et tout système IFC compatible.</p>
-        <a
-          href="https://calendly.com/wikolabs" target="_blank" rel="noopener noreferrer"
-          style={{ display: "inline-block", background: "#f9fafb", color: "#111827", padding: "0.9rem 2.5rem", borderRadius: 4, fontWeight: 700, fontSize: "0.95rem", textDecoration: "none", fontFamily: "var(--font-display)", textTransform: "uppercase", letterSpacing: "0.1em" }}
-        >
-          Demander une démo
-        </a>
+        <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
+          <a
+            href="https://calendly.com/wikolabs"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ display: "inline-block", background: "#f9fafb", color: "#111827", padding: "0.9rem 2.5rem", borderRadius: 4, fontWeight: 700, fontSize: "0.95rem", textDecoration: "none", fontFamily: "var(--font-display)", textTransform: "uppercase", letterSpacing: "0.1em" }}
+          >
+            📅 Réserver un créneau →
+          </a>
+          <a
+            href="https://wa.me/261386626100?text=Bonjour%2C%20je%20souhaite%20discuter%20de%20BIMFlow%20avec%20Wikolabs."
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ display: "inline-block", background: "#25d366", color: "#fff", padding: "0.9rem 2.5rem", borderRadius: 4, fontWeight: 700, fontSize: "0.95rem", textDecoration: "none", fontFamily: "var(--font-display)", textTransform: "uppercase", letterSpacing: "0.1em" }}
+          >
+            💬 WhatsApp →
+          </a>
+        </div>
       </section>
 
       {/* Footer */}
