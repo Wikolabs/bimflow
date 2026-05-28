@@ -7,12 +7,10 @@
           <span style={{ fontFamily: "var(--font-display)", color: "#f3f4f6", fontSize: "1.1rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase" }}>
             BIM<span style={{ color: "#6b7280" }}>Flow</span>
           </span>
-          <a
-            href="https://calendly.com/wikolabs" target="_blank" rel="noopener noreferrer"
-            style={{ background: "transparent", color: "#9ca3af", padding: "0.4rem 1.1rem", borderRadius: 4, fontWeight: 600, fontSize: "0.8rem", textDecoration: "none", border: "1px solid #374151", textTransform: "uppercase", letterSpacing: "0.08em" }}
-          >
+          <button data-cal-link="wikolabs-team/30min" data-cal-namespace="wk30min" data-cal-config='{"layout":"month_view"}' type="button"
+            style={{ background: "transparent", color: "#9ca3af", padding: "0.4rem 1.1rem", borderRadius: 4, fontWeight: 600, fontSize: "0.8rem", textDecoration: "none", border: "1px solid #374151", textTransform: "uppercase", letterSpacing: "0.08em" }}>
             Démo
-          </a>
+          </button>
         </div>
       </nav>
 
@@ -29,14 +27,10 @@
             BIMFlow ingère vos fichiers IFC et nuages de points, extrait les informations géométriques et les livre en données structurées exploitables.
           </p>
           <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap", alignItems: "center" }}>
-            <a
-              href="https://calendly.com/wikolabs"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ display: "inline-block", background: "#374151", color: "#f9fafb", padding: "0.75rem 1.75rem", borderRadius: 4, fontWeight: 600, fontSize: "0.9rem", textDecoration: "none", fontFamily: "var(--font-display)", textTransform: "uppercase", letterSpacing: "0.08em" }}
-            >
+            <button data-cal-link="wikolabs-team/30min" data-cal-namespace="wk30min" data-cal-config='{"layout":"month_view"}' type="button"
+            style={{ display: "inline-block", background: "#374151", color: "#f9fafb", padding: "0.75rem 1.75rem", borderRadius: 4, fontWeight: 600, fontSize: "0.9rem", textDecoration: "none", fontFamily: "var(--font-display)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
               📅 Réserver un créneau →
-            </a>
+            </button>
             <a
               href="https://wa.me/261386626100?text=Bonjour%2C%20je%20souhaite%20discuter%20de%20BIMFlow%20avec%20Wikolabs."
               target="_blank"
@@ -136,14 +130,10 @@
         </h2>
         <p style={{ color: "#9ca3af", marginBottom: "2rem", fontSize: "0.95rem" }}>Intégration possible avec Revit, ArchiCAD, Autodesk Forge et tout système IFC compatible.</p>
         <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
-          <a
-            href="https://calendly.com/wikolabs"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ display: "inline-block", background: "#f9fafb", color: "#111827", padding: "0.9rem 2.5rem", borderRadius: 4, fontWeight: 700, fontSize: "0.95rem", textDecoration: "none", fontFamily: "var(--font-display)", textTransform: "uppercase", letterSpacing: "0.1em" }}
-          >
+          <button data-cal-link="wikolabs-team/30min" data-cal-namespace="wk30min" data-cal-config='{"layout":"month_view"}' type="button"
+            style={{ display: "inline-block", background: "#f9fafb", color: "#111827", padding: "0.9rem 2.5rem", borderRadius: 4, fontWeight: 700, fontSize: "0.95rem", textDecoration: "none", fontFamily: "var(--font-display)", textTransform: "uppercase", letterSpacing: "0.1em" }}>
             📅 Réserver un créneau →
-          </a>
+          </button>
           <a
             href="https://wa.me/261386626100?text=Bonjour%2C%20je%20souhaite%20discuter%20de%20BIMFlow%20avec%20Wikolabs."
             target="_blank"
