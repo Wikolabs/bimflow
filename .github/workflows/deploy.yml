@@ -17,12 +17,17 @@ jobs:
       - name: Log in to GHCR
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin
 
-      - name: Build and push Docker image
+      - name: Build and push frontend (Next.js)
         run: |
           docker build -t ghcr.io/wikolabs/bimflow:latest .
           docker push ghcr.io/wikolabs/bimflow:latest
 
-      - name: Deploy to VM via SSH
+      - name: Build and push backend (FastAPI)
+        run: |
+          docker build -t ghcr.io/wikolabs/bimflow-backend:latest ./backend
+          docker push ghcr.io/wikolabs/bimflow-backend:latest
+
+      - name: Deploy to VM via SSH + docker-compose
         env:
           SSH_PRIVATE_KEY: ${{ secrets.WIKOLABS_VM_SSH_KEY }}
           VM_HOST: ${{ secrets.WIKOLABS_VM_HOST }}
@@ -36,4 +41,6 @@ jobs:
           echo "$SSH_PRIVATE_KEY" > ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
           ssh-keyscan -H "$VM_HOST" >> ~/.ssh/known_hosts 2>/dev/null
-          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no "$VM_USER@$VM_HOST" "echo '$GHCR_TOKEN' | docker login ghcr.io -u '$GHCR_USER' --password-stdin && docker pull ghcr.io/wikolabs/bimflow:latest && (docker stop bimflow 2>/dev/null; docker rm bimflow 2>/dev/null; true) && docker run -d --name bimflow -p 3022:3000 -e GROQ_API_KEY='$GROQ_API_KEY' -e GEMINI_API_KEY='$GEMINI_API_KEY' --restart unless-stopped ghcr.io/wikolabs/bimflow:latest && echo 'Deployed bimflow on port 3022'"
+          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no "$VM_USER@$VM_HOST" "mkdir -p ~/wk/bimflow"
+          scp -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no docker-compose.yml "$VM_USER@$VM_HOST:~/wk/bimflow/docker-compose.yml"
+          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no "$VM_USER@$VM_HOST" "cd ~/wk/bimflow && echo '$GHCR_TOKEN' | docker login ghcr.io -u '$GHCR_USER' --password-stdin && (docker stop bimflow bimflow-backend 2>/dev/null; docker rm bimflow bimflow-backend 2>/dev/null; true) && GROQ_API_KEY='$GROQ_API_KEY' GEMINI_API_KEY='$GEMINI_API_KEY' docker compose pull && GROQ_API_KEY='$GROQ_API_KEY' GEMINI_API_KEY='$GEMINI_API_KEY' docker compose up -d && echo 'Deployed bimflow stack (frontend on 3022, backend internal)'"
