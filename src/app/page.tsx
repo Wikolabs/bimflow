@@ -1,161 +1,231 @@
-﻿export default function BIMFlowPage() {
+﻿"use client";
+
+const P = {
+  name: "BIMFlow",
+  tagLabel: "BIM · IFC · Nuage de points · IA",
+  taglines: ["Vos maquettes IFC ingeries.", "Vos geometries extraites.", "Automatiquement."],
+  taglineAccentIdx: 2,
+  desc: "BIMFlow analyse vos fichiers IFC et nuages de points 3D, extrait les informations geometriques avec une precision au millimetre et livre les donnees structurees directement dans vos outils metier.",
+  accent: "#F59E0B",
+  accentDim: "rgba(245,158,11,0.1)",
+  accentBorder: "rgba(245,158,11,0.25)",
+  accentGlow: "rgba(245,158,11,0.12)",
+  waText: "BIMFlow",
+  navLinks: [
+    { label: "Fonctionnalites", href: "#features" },
+    { label: "Comment ca marche", href: "#process" },
+    { label: "Contact", href: "#cta" },
+  ],
+  metrics: [
+    { value: "< 3 min", label: "100M points traites" },
+    { value: "+/- 2 mm", label: "precision geometrique" },
+    { value: "12+", label: "formats supportes" },
+    { value: "100%", label: "export automatique" },
+  ],
+  features: [
+    { icon: "building", title: "Parsing IFC complet", desc: "Lecture des modeles IFC 2x3 et 4.0. Extraction des elements structurels, MEP, espaces et proprietes associees — livrables en JSON structure." },
+    { icon: "cloud", title: "Segmentation nuage de points", desc: "Classification automatique des nuages de points : sol, murs, poutres, equipements. Algorithme RANSAC + deep learning. Compatible LAS, LAZ, E57." },
+    { icon: "export", title: "Export multi-format", desc: "Resultats livres en GeoJSON, CSV, JSON ou directement dans votre BIM 360, Autodesk Forge ou Revit via API. Zero manipulation manuelle." },
+  ],
+  steps: [
+    { num: "01", title: "Deposez vos fichiers IFC ou nuages de points", desc: "Glissez-deposez vos fichiers sur l'interface ou connectez votre bucket cloud. BIMFlow accepte IFC, LAS, LAZ, E57, RCP et plus de 12 formats." },
+    { num: "02", title: "L'agent analyse et extrait", desc: "BIMFlow segmente, classe et extrait les informations geometriques et semantiques. Chaque element est identifie, mesure et rattache a ses proprietes IFC." },
+    { num: "03", title: "Donnees livrees dans vos outils", desc: "Export automatique vers votre BIM 360, Revit, ou votre propre API. Tableaux de quantitatifs, plans de masse et donnees structurees exploitables immediatement." },
+  ],
+  testimonials: [
+    { quote: "On traitait nos nuages de points manuellement en 3 jours. BIMFlow le fait en moins de 10 minutes avec une precision qu'on n'atteignait pas avant. C'est une revolution pour nos equipes terrain.", author: "Thomas R.", role: "Directeur Technique, Cabinet d'architecture BIM" },
+    { quote: "L'integration avec notre pipeline Revit est transparente. On a reduit le temps de validation geometrique de 60% sur nos chantiers. BIMFlow s'est amortit en moins de deux mois.", author: "Camille B.", role: "BIM Manager, Groupe de construction immobilier" },
+  ],
+  ctaTitle: "Automatisez votre pipeline BIM des aujourd'hui",
+  ctaDesc: "Premiers resultats en moins de 10 minutes. Integration Revit, ArchiCAD et Autodesk Forge incluse. Aucune carte bancaire.",
+  ctaPrimary: "Reserver un creneau",
+  footerTagline: "Agent IA BIM pour la construction et l'immobilier",
+};
+
+export default function Page() {
+  const bg = "#04080F";
+  const bg2 = "#070D1B";
+  const card = "rgba(255,255,255,0.04)";
+  const border = "rgba(255,255,255,0.09)";
+  const gold = "#D4AF37";
+  const goldDim = "rgba(212,175,55,0.1)";
+  const goldBorder = "rgba(212,175,55,0.28)";
+  const txt1 = "#F0EDE6";
+  const txt2 = "#8B9DB5";
+  const txt3 = "#3C5068";
+  const { accent, accentDim, accentBorder, accentGlow } = P;
+
   return (
-    <main style={{ fontFamily: "var(--font-body)", color: "#111827" }}>
-      {/* Nav */}
-      <nav style={{ background: "#111827", padding: "0 2rem", borderBottom: "1px solid #374151" }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", height: 60 }}>
-          <span style={{ fontFamily: "var(--font-display)", color: "#f3f4f6", fontSize: "1.1rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase" }}>
-            BIM<span style={{ color: "#6b7280" }}>Flow</span>
-          </span>
-          <button data-cal-link="wikolabs-team/30min" data-cal-namespace="wk30min" data-cal-config='{"layout":"month_view"}' type="button"
-            style={{ background: "transparent", color: "#9ca3af", padding: "0.4rem 1.1rem", borderRadius: 4, fontWeight: 600, fontSize: "0.8rem", textDecoration: "none", border: "1px solid #374151", textTransform: "uppercase", letterSpacing: "0.08em" }}>
-            Démo
+    <div style={{ minHeight: "100vh", background: bg, color: txt1 }}>
+      <style>{`
+        *, *::before, *::after { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+        @keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
+        @keyframes pulseDot { 0%,100%{ opacity:1; transform:scale(1); } 50%{ opacity:.4; transform:scale(1.6); } }
+        .wk-card { transition: background .3s, border-color .3s, transform .35s cubic-bezier(.34,1.2,.64,1); }
+        .wk-card:hover { background: rgba(255,255,255,0.07) !important; border-color: rgba(245,158,11,0.25) !important; transform: translateY(-6px) !important; }
+        .wk-btn { transition: opacity .2s, transform .2s, box-shadow .2s; }
+        .wk-btn:hover { opacity:.9; transform:translateY(-2px); box-shadow:0 12px 32px rgba(212,175,55,.18); }
+        .wk-wa { transition: opacity .2s, transform .2s; }
+        .wk-wa:hover { opacity:.9; transform:translateY(-2px); }
+        .wk-nav-link { color: #8B9DB5; text-decoration:none; font-size:14px; font-weight:500; transition:color .2s; }
+        .wk-nav-link:hover { color: #F0EDE6; }
+        @media(max-width:640px){ .wk-hide-sm{ display:none!important; } .wk-hero-title{ font-size:2.4rem!important; } }
+      `}</style>
+
+      {/* NAVBAR */}
+      <nav style={{ position:"sticky", top:0, zIndex:100, background:"rgba(4,8,15,0.82)", backdropFilter:"blur(20px)", borderBottom:`1px solid ${border}`, padding:"0 40px", height:60, display:"flex", alignItems:"center", justifyContent:"space-between" }}>
+        <span style={{ fontSize:18, fontWeight:800, letterSpacing:"-0.5px", color:txt1 }}>
+          {P.name}<span style={{ color:gold }}>.</span>
+        </span>
+        <div style={{ display:"flex", gap:28, alignItems:"center" }}>
+          <div className="wk-hide-sm" style={{ display:"flex", gap:24 }}>
+            {P.navLinks.map(l => <a key={l.label} href={l.href} className="wk-nav-link">{l.label}</a>)}
+          </div>
+          <button data-cal-link="wikolabs-team/30min" data-cal-namespace="wk30min" data-cal-config='{"layout":"month_view"}' className="wk-btn"
+            style={{ background:gold, color:"#04080F", border:"none", borderRadius:8, padding:"8px 18px", fontWeight:700, fontSize:13.5, cursor:"pointer", fontFamily:"inherit" }}>
+            Reserver →
           </button>
         </div>
       </nav>
 
-      {/* Hero */}
-      <section style={{ maxWidth: 1100, margin: "0 auto", padding: "5rem 2rem 3rem", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "3rem", alignItems: "center" }}>
-        <div>
-          <div style={{ fontFamily: "var(--font-display)", fontSize: "0.65rem", color: "#6b7280", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: "1.25rem", borderLeft: "2px solid #374151", paddingLeft: "0.75rem" }}>
-            BIM · Point Cloud · IFC
-          </div>
-          <h1 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", lineHeight: 1.1, marginBottom: "1.25rem", color: "#111827", letterSpacing: "0.02em" }}>
-            Votre maquette<br />numérique analysée.<br /><span style={{ color: "#6b7280" }}>Automatiquement.</span>
-          </h1>
-          <p style={{ fontSize: "0.95rem", color: "#4b5563", lineHeight: 1.8, marginBottom: "2.5rem", maxWidth: 440 }}>
-            BIMFlow ingère vos fichiers IFC et nuages de points, extrait les informations géométriques et les livre en données structurées exploitables.
-          </p>
-          <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap", alignItems: "center" }}>
-            <button data-cal-link="wikolabs-team/30min" data-cal-namespace="wk30min" data-cal-config='{"layout":"month_view"}' type="button"
-            style={{ display: "inline-block", background: "#374151", color: "#f9fafb", padding: "0.75rem 1.75rem", borderRadius: 4, fontWeight: 600, fontSize: "0.9rem", textDecoration: "none", fontFamily: "var(--font-display)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
-              📅 Réserver un créneau →
-            </button>
-            <a
-              href="https://wa.me/261386626100?text=Bonjour%2C%20je%20souhaite%20discuter%20de%20BIMFlow%20avec%20Wikolabs."
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ display: "inline-block", background: "#25d366", color: "#fff", padding: "0.75rem 1.75rem", borderRadius: 4, fontWeight: 600, fontSize: "0.9rem", textDecoration: "none", fontFamily: "var(--font-display)", textTransform: "uppercase", letterSpacing: "0.08em" }}
-            >
-              💬 WhatsApp →
-            </a>
-          </div>
+      {/* HERO */}
+      <section style={{ padding:"100px 40px 80px", maxWidth:1000, margin:"0 auto", textAlign:"center", position:"relative" }}>
+        <div style={{ position:"absolute", top:-60, left:"50%", transform:"translateX(-50%)", width:700, height:600, background:`radial-gradient(ellipse at 50% 30%, ${accentGlow} 0%, transparent 60%)`, pointerEvents:"none" }} />
+        <div style={{ display:"inline-flex", alignItems:"center", gap:8, marginBottom:24, background:accentDim, border:`1px solid ${accentBorder}`, borderRadius:100, padding:"6px 18px", animation:"fadeUp .5s ease both" }}>
+          <span style={{ width:7, height:7, borderRadius:"50%", background:accent, display:"inline-block", animation:"pulseDot 2s ease-in-out infinite" }} />
+          <span style={{ color:accent, fontSize:11.5, fontWeight:700, letterSpacing:"2px", textTransform:"uppercase" }}>{P.tagLabel}</span>
         </div>
-
-        {/* 3D Wireframe Grid */}
-        <div style={{ position: "relative", aspectRatio: "1/0.85" }}>
-          <svg viewBox="0 0 400 340" style={{ width: "100%", height: "100%" }} xmlns="http://www.w3.org/2000/svg">
-            {/* Grid floor */}
-            {[0,1,2,3,4,5,6].map(i => (
-              <line key={`h${i}`} x1={50 + i*50} y1={50} x2={50 + i*50 - 80} y2={260} stroke="#d1d5db" strokeWidth="0.6" />
-            ))}
-            {[0,1,2,3,4].map(i => (
-              <line key={`v${i}`} x1={50} y1={50 + i*52.5} x2={350} y2={50 + i*52.5 - 35} stroke="#d1d5db" strokeWidth="0.6" />
-            ))}
-            {/* Building outline */}
-            <polygon points="120,200 280,200 280,100 200,60 120,100" fill="none" stroke="#374151" strokeWidth="1.5" />
-            <line x1="200" y1="60" x2="200" y2="200" stroke="#6b7280" strokeWidth="0.8" strokeDasharray="4,3" />
-            <line x1="120" y1="150" x2="280" y2="150" stroke="#6b7280" strokeWidth="0.8" strokeDasharray="4,3" />
-            {/* Dimensions */}
-            <line x1="120" y1="220" x2="280" y2="220" stroke="#374151" strokeWidth="1" markerStart="url(#arrow)" markerEnd="url(#arrow)" />
-            <text x="200" y="234" textAnchor="middle" fontSize="9" fill="#6b7280" fontFamily="monospace">24.80 m</text>
-            <line x1="295" y1="100" x2="295" y2="200" stroke="#374151" strokeWidth="1" />
-            <text x="310" y="155" fontSize="9" fill="#6b7280" fontFamily="monospace">12.4 m</text>
-            {/* Point cloud dots */}
-            {[
-              [140,130],[160,125],[180,135],[200,128],[220,132],[240,130],[260,127],
-              [145,160],[165,155],[185,162],[205,158],[225,160],[245,155],
-              [150,190],[170,188],[190,192],[210,190],[230,188],[250,190]
-            ].map(([cx,cy], i) => (
-              <circle key={i} cx={cx} cy={cy} r="2" fill={i % 3 === 0 ? "#374151" : i % 3 === 1 ? "#6b7280" : "#9ca3af"} />
-            ))}
-            <defs>
-              <marker id="arrow" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
-                <path d="M0,0 L6,3 L0,6" fill="none" stroke="#374151" strokeWidth="1" />
-              </marker>
-            </defs>
-          </svg>
-          {/* Overlay badges */}
-          <div style={{ position: "absolute", top: "12%", right: "5%", background: "#111827", color: "#9ca3af", fontSize: "0.65rem", fontFamily: "var(--font-display)", padding: "0.35rem 0.7rem", borderRadius: 3, letterSpacing: "0.08em", border: "1px solid #374151" }}>
-            IFC 4.0 ✓
-          </div>
-          <div style={{ position: "absolute", bottom: "15%", left: "0%", background: "#f9fafb", color: "#374151", fontSize: "0.65rem", fontFamily: "var(--font-display)", padding: "0.35rem 0.7rem", borderRadius: 3, letterSpacing: "0.08em", border: "1px solid #e5e7eb" }}>
-            1.2M points
-          </div>
+        <h1 className="wk-hero-title" style={{ fontSize:"clamp(2.6rem,6vw,5rem)", fontWeight:700, lineHeight:1.08, letterSpacing:"-0.03em", marginBottom:28, fontFamily:"'Instrument Serif',Georgia,serif", animation:"fadeUp .5s .08s ease both" }}>
+          {P.taglines.map((line, i) => (
+            <span key={i} style={{ display:"block", color:i===P.taglineAccentIdx?accent:txt1, fontStyle:i===P.taglineAccentIdx?"italic":"normal" }}>{line}</span>
+          ))}
+        </h1>
+        <p style={{ fontSize:"1.1rem", color:txt2, lineHeight:1.72, maxWidth:580, margin:"0 auto 48px", animation:"fadeUp .5s .16s ease both" }}>{P.desc}</p>
+        <div style={{ display:"flex", flexWrap:"wrap", justifyContent:"center", gap:14, marginBottom:44, animation:"fadeUp .5s .24s ease both" }}>
+          {P.metrics.map(m => (
+            <div key={m.label} style={{ background:card, border:`1px solid ${border}`, borderRadius:18, padding:"14px 22px", textAlign:"center", minWidth:118 }}>
+              <div style={{ fontSize:"1.7rem", fontWeight:800, color:txt1, letterSpacing:"-1.5px", lineHeight:1 }}>{m.value}</div>
+              <div style={{ fontSize:"0.62rem", color:txt3, textTransform:"uppercase", letterSpacing:"1.5px", marginTop:5 }}>{m.label}</div>
+            </div>
+          ))}
+        </div>
+        <div style={{ display:"flex", flexWrap:"wrap", gap:12, justifyContent:"center", animation:"fadeUp .5s .32s ease both" }}>
+          <button data-cal-link="wikolabs-team/30min" data-cal-namespace="wk30min" data-cal-config='{"layout":"month_view"}' className="wk-btn"
+            style={{ background:gold, color:"#04080F", border:"none", borderRadius:10, padding:"14px 28px", fontWeight:700, fontSize:15, cursor:"pointer", display:"flex", alignItems:"center", gap:8, fontFamily:"inherit" }}>
+            📅 {P.ctaPrimary}
+          </button>
+          <a href={`https://wa.me/261386626100?text=Bonjour%2C%20je%20souhaite%20discuter%20de%20${encodeURIComponent(P.waText)}%20avec%20Wikolabs.`}
+            target="_blank" rel="noopener noreferrer" className="wk-wa"
+            style={{ background:"#25d366", color:"#fff", borderRadius:10, padding:"14px 28px", fontWeight:700, fontSize:15, textDecoration:"none", display:"flex", alignItems:"center", gap:8 }}>
+            💬 WhatsApp
+          </a>
         </div>
       </section>
 
-      {/* Metrics */}
-      <section style={{ background: "#111827", padding: "3rem 2rem" }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "2rem", textAlign: "center" }}>
-          {[
-            ["< 3 min", "Traitement 100M pts"],
-            ["± 2 mm", "Précision géométrique"],
-            ["12+", "Formats supportés"],
-            ["100%", "Export automatique"],
-          ].map(([val, label]) => (
-            <div key={label} style={{ borderLeft: "1px solid #374151", paddingLeft: "1.5rem" }}>
-              <div style={{ fontFamily: "var(--font-display)", fontSize: "1.75rem", fontWeight: 700, color: "#f9fafb", letterSpacing: "0.04em" }}>{val}</div>
-              <div style={{ fontSize: "0.72rem", color: "#6b7280", textTransform: "uppercase", letterSpacing: "0.1em", marginTop: "0.25rem" }}>{label}</div>
+      {/* FEATURES */}
+      <section id="features" style={{ padding:"80px 40px", maxWidth:1100, margin:"0 auto" }}>
+        <div style={{ textAlign:"center", marginBottom:52 }}>
+          <p style={{ fontSize:"0.68rem", color:gold, letterSpacing:"3px", textTransform:"uppercase", fontWeight:700, marginBottom:14 }}>Fonctionnalites</p>
+          <h2 style={{ fontSize:"clamp(1.8rem,3.5vw,2.8rem)", fontWeight:700, color:txt1, letterSpacing:"-0.02em", fontFamily:"'Instrument Serif',Georgia,serif", lineHeight:1.15 }}>
+            Precision millimetrique, <em style={{ fontStyle:"italic", color:gold }}>livraison automatique</em>
+          </h2>
+        </div>
+        <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill,minmax(300px,1fr))", gap:20 }}>
+          {P.features.map((f, i) => (
+            <div key={f.title} className="wk-card" style={{ background:card, border:`1px solid ${border}`, borderRadius:20, padding:"28px 28px 24px", position:"relative", overflow:"hidden" }}>
+              <div style={{ position:"absolute", top:0, left:0, right:0, height:2, background:`linear-gradient(90deg,transparent,${i===0?gold:accent},transparent)`, opacity:.6 }} />
+              <div style={{ fontSize:"2rem", marginBottom:16 }}>{i===0?"🏗️":i===1?"☁️":"📤"}</div>
+              <h3 style={{ fontSize:"1.05rem", fontWeight:700, color:txt1, marginBottom:10 }}>{f.title}</h3>
+              <p style={{ fontSize:"0.88rem", color:txt2, lineHeight:1.7, margin:0 }}>{f.desc}</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Features */}
-      <section style={{ padding: "4rem 2rem" }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-          <h2 style={{ fontFamily: "var(--font-display)", fontSize: "1.5rem", color: "#374151", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "2.5rem", textAlign: "center" }}>
-            Capacités techniques
-          </h2>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(270px, 1fr))", gap: "1.25rem" }}>
-            {[
-              { title: "IFC Parsing", desc: "Lecture des modèles IFC 2x3 et 4.0. Extraction des éléments structurels, MEP, espaces et propriétés associées." },
-              { title: "Point Cloud Segmentation", desc: "Classification automatique des nuages de points : sol, murs, poutres, équipements. Algorithme RANSAC + deep learning." },
-              { title: "Export automatique", desc: "Résultats livrés en GeoJSON, CSV, JSON structuré ou directement dans votre BIM 360 / Autodesk Forge via API." },
-            ].map((f) => (
-              <div key={f.title} style={{ background: "#fff", border: "1px solid #e5e7eb", borderRadius: 6, padding: "1.75rem", borderTop: "2px solid #374151" }}>
-                <h3 style={{ fontFamily: "var(--font-display)", fontSize: "0.9rem", fontWeight: 700, color: "#111827", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "0.75rem" }}>{f.title}</h3>
-                <p style={{ fontSize: "0.875rem", color: "#4b5563", lineHeight: 1.7 }}>{f.desc}</p>
+      {/* HOW IT WORKS */}
+      <section id="process" style={{ padding:"80px 40px", background:bg2 }}>
+        <div style={{ maxWidth:860, margin:"0 auto" }}>
+          <div style={{ textAlign:"center", marginBottom:48 }}>
+            <p style={{ fontSize:"0.68rem", color:gold, letterSpacing:"3px", textTransform:"uppercase", fontWeight:700, marginBottom:14 }}>Comment ca marche</p>
+            <h2 style={{ fontSize:"clamp(1.8rem,3.5vw,2.8rem)", fontWeight:700, color:txt1, letterSpacing:"-0.02em", fontFamily:"'Instrument Serif',Georgia,serif" }}>
+              Premiers resultats en <em style={{ fontStyle:"italic", color:accent }}>moins de 10 minutes</em>
+            </h2>
+          </div>
+          <div style={{ display:"flex", flexDirection:"column", gap:14 }}>
+            {P.steps.map((s, i) => (
+              <div key={s.num} style={{ display:"flex", alignItems:"flex-start", gap:22, background:card, border:`1px solid ${border}`, borderRadius:18, padding:"22px 26px" }}>
+                <div style={{ flexShrink:0, width:46, height:46, background:i===0?goldDim:accentDim, border:`1px solid ${i===0?goldBorder:accentBorder}`, borderRadius:14, display:"flex", alignItems:"center", justifyContent:"center", color:i===0?gold:accent, fontWeight:800, fontSize:15 }}>
+                  {s.num}
+                </div>
+                <div>
+                  <h3 style={{ fontSize:"1rem", fontWeight:700, color:txt1, marginBottom:6, lineHeight:1.3 }}>{s.title}</h3>
+                  <p style={{ fontSize:"0.87rem", color:txt2, lineHeight:1.7, margin:0 }}>{s.desc}</p>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section style={{ background: "#374151", padding: "4rem 2rem", textAlign: "center" }}>
-        <h2 style={{ fontFamily: "var(--font-display)", fontSize: "1.8rem", color: "#f9fafb", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "1rem" }}>
-          Automatisez votre pipeline BIM
-        </h2>
-        <p style={{ color: "#9ca3af", marginBottom: "2rem", fontSize: "0.95rem" }}>Intégration possible avec Revit, ArchiCAD, Autodesk Forge et tout système IFC compatible.</p>
-        <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
-          <button data-cal-link="wikolabs-team/30min" data-cal-namespace="wk30min" data-cal-config='{"layout":"month_view"}' type="button"
-            style={{ display: "inline-block", background: "#f9fafb", color: "#111827", padding: "0.9rem 2.5rem", borderRadius: 4, fontWeight: 700, fontSize: "0.95rem", textDecoration: "none", fontFamily: "var(--font-display)", textTransform: "uppercase", letterSpacing: "0.1em" }}>
-            📅 Réserver un créneau →
-          </button>
-          <a
-            href="https://wa.me/261386626100?text=Bonjour%2C%20je%20souhaite%20discuter%20de%20BIMFlow%20avec%20Wikolabs."
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ display: "inline-block", background: "#25d366", color: "#fff", padding: "0.9rem 2.5rem", borderRadius: 4, fontWeight: 700, fontSize: "0.95rem", textDecoration: "none", fontFamily: "var(--font-display)", textTransform: "uppercase", letterSpacing: "0.1em" }}
-          >
-            💬 WhatsApp →
-          </a>
+      {/* TESTIMONIALS */}
+      <section style={{ padding:"80px 40px", maxWidth:900, margin:"0 auto" }}>
+        <div style={{ textAlign:"center", marginBottom:44 }}>
+          <p style={{ fontSize:"0.68rem", color:gold, letterSpacing:"3px", textTransform:"uppercase", fontWeight:700, marginBottom:14 }}>Temoignages</p>
+          <h2 style={{ fontSize:"clamp(1.6rem,3vw,2.4rem)", fontWeight:700, color:txt1, fontFamily:"'Instrument Serif',Georgia,serif" }}>Ce qu'en disent nos clients</h2>
+        </div>
+        <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill,minmax(340px,1fr))", gap:20 }}>
+          {P.testimonials.map((t, i) => (
+            <div key={i} style={{ background:card, border:`1px solid ${border}`, borderLeft:`3px solid ${i===0?gold:accent}`, borderRadius:20, padding:"26px 26px 22px" }}>
+              <p style={{ fontSize:"0.92rem", color:txt2, lineHeight:1.75, fontStyle:"italic", marginBottom:20 }}>&ldquo;{t.quote}&rdquo;</p>
+              <div style={{ display:"flex", alignItems:"center", gap:12 }}>
+                <div style={{ width:38, height:38, borderRadius:"50%", background:i===0?goldDim:accentDim, border:`1px solid ${i===0?goldBorder:accentBorder}`, display:"flex", alignItems:"center", justifyContent:"center", fontSize:16 }}>👤</div>
+                <div>
+                  <div style={{ fontSize:"0.9rem", fontWeight:700, color:txt1 }}>{t.author}</div>
+                  <div style={{ fontSize:"0.72rem", color:txt3 }}>{t.role}</div>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* Footer */}
-      <footer style={{ background: "#111827", padding: "1.25rem 2rem", textAlign: "center", borderTop: "1px solid #374151" }}>
-        <p style={{ color: "#6b7280", fontSize: "0.8rem", margin: 0, fontFamily: "var(--font-display)", letterSpacing: "0.06em" }}>© 2025 BIMFlow — Un produit Wikolabs</p>
-        <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "1rem", marginTop: "0.5rem", fontSize: "0.8rem" }}>
-          <a href="mailto:team@wikolabs.com" style={{ textDecoration: "none", color: "inherit" }}>team@wikolabs.com</a>
-          <span>·</span>
-          <a href="tel:+261386626100" style={{ textDecoration: "none", color: "inherit" }}>+261 38 66 261 00</a>
-          <span>·</span>
-          <button data-cal-link="wikolabs-team/30min" data-cal-namespace="wk30min" data-cal-config='{"layout":"month_view"}' type="button" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none", color: "inherit" }}>Prendre RDV</button>
+      {/* CTA */}
+      <section id="cta" style={{ padding:"0 40px 100px", maxWidth:860, margin:"0 auto" }}>
+        <div style={{ background:card, border:`1px solid ${goldBorder}`, borderRadius:24, padding:"64px 48px", textAlign:"center", backgroundImage:`radial-gradient(ellipse at 50% 0%, ${goldDim} 0%, transparent 65%)` }}>
+          <p style={{ fontSize:"0.68rem", color:gold, letterSpacing:"3px", textTransform:"uppercase", fontWeight:700, marginBottom:16 }}>Demarrer</p>
+          <h2 style={{ fontSize:"clamp(1.8rem,3.5vw,2.8rem)", fontWeight:700, color:txt1, marginBottom:14, letterSpacing:"-0.02em", fontFamily:"'Instrument Serif',Georgia,serif" }}>{P.ctaTitle}</h2>
+          <p style={{ color:txt2, fontSize:"1rem", marginBottom:36, lineHeight:1.7 }}>{P.ctaDesc}</p>
+          <div style={{ display:"flex", flexWrap:"wrap", gap:12, justifyContent:"center" }}>
+            <button data-cal-link="wikolabs-team/30min" data-cal-namespace="wk30min" data-cal-config='{"layout":"month_view"}' className="wk-btn"
+              style={{ background:gold, color:"#04080F", border:"none", borderRadius:10, padding:"14px 28px", fontWeight:700, fontSize:15, cursor:"pointer", display:"flex", alignItems:"center", gap:8, fontFamily:"inherit" }}>
+              📅 {P.ctaPrimary}
+            </button>
+            <a href={`https://wa.me/261386626100?text=Bonjour%2C%20je%20souhaite%20discuter%20de%20${encodeURIComponent(P.waText)}%20avec%20Wikolabs.`}
+              target="_blank" rel="noopener noreferrer" className="wk-wa"
+              style={{ background:"#25d366", color:"#fff", borderRadius:10, padding:"14px 28px", fontWeight:700, fontSize:15, textDecoration:"none", display:"flex", alignItems:"center", gap:8 }}>
+              💬 WhatsApp
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer style={{ borderTop:`1px solid ${border}`, padding:"32px 40px" }}>
+        <div style={{ maxWidth:1200, margin:"0 auto", display:"flex", flexWrap:"wrap", justifyContent:"space-between", alignItems:"center", gap:16 }}>
+          <div>
+            <span style={{ fontWeight:800, fontSize:16, color:txt1 }}>{P.name}</span><span style={{ color:gold }}>.</span>
+            <span style={{ display:"block", fontSize:12, color:txt3, marginTop:3 }}>{P.footerTagline}</span>
+          </div>
+          <p style={{ fontSize:13, color:txt3 }}>© 2026 {P.name} — Un produit <a href="https://wikolabs.com" style={{ color:txt2, textDecoration:"none" }}>Wikolabs</a></p>
+          <div style={{ display:"flex", flexWrap:"wrap", gap:16, fontSize:13, alignItems:"center" }}>
+            <a href="mailto:team@wikolabs.com" style={{ color:txt3, textDecoration:"none" }}>team@wikolabs.com</a>
+            <span style={{ color:txt3 }}>·</span>
+            <button data-cal-link="wikolabs-team/30min" data-cal-namespace="wk30min" data-cal-config='{"layout":"month_view"}' style={{ background:"none", border:"none", color:txt3, fontSize:13, cursor:"pointer", fontFamily:"inherit", padding:0 }}>Prendre RDV</button>
+          </div>
         </div>
       </footer>
-    </main>
+    </div>
   );
 }
