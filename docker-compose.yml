@@ -15,21 +15,9 @@ services:
       GROQ_API_KEY: ${GROQ_API_KEY:-}
       GEMINI_API_KEY: ${GEMINI_API_KEY:-}
     networks:
-      - bimflow-net
-
-  bimflow:
-    image: ghcr.io/wikolabs/bimflow:latest
-    container_name: bimflow
-    restart: unless-stopped
-    ports:
-      - "3022:3000"
-    environment:
-      BACKEND_URL: "http://bimflow-backend:8000"
-    depends_on:
-      - bimflow-backend
-    networks:
-      - bimflow-net
-
+  wkdemo_net:
+    name: wkdemo-net
+    external: true
 networks:
   bimflow-net:
     name: bimflow-net
