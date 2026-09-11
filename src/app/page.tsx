@@ -33,7 +33,7 @@ export default function DemoPage() {
 
   const t = lang === "fr" ? {
     back: "Retour", title: "Démo", sub: PRODUCT + ", analyse BIM + détection de clashes",
-    desc: "Saisissez un nom de projet BIM et les types d'espaces. L'agent IA extrait les specs et détecte les conflits geometriques au format livrable BIM. Aucun fichier IFC reellement parse, c'est un POC qui montre la logique de production.",
+    desc: "Saisissez un nom de projet BIM et les types d'espaces. L'agent IA extrait les specs et détecte les conflits geometriques au format livrable BIM. Aucun fichier IFC réellement parse, c'est un POC qui montre la logique de production.",
     inputLabel: "Votre projet BIM",
     plName: "Nom du projet (ex: Tour Vertige R+12)",
     plRooms: "Types d'espaces (ex: bureaux, sanitaires, parkings)",
@@ -41,9 +41,9 @@ export default function DemoPage() {
     generate: "Analyser le modèle", generating: "Analyse en cours...",
     briefTitle: "Rapport BIM", emptyHint: "Le rapport s'affiche ici une fois généré.",
     btnRevit: "Pousser vers Revit", btnForge: "Envoyer vers Autodesk Forge", btnBim360: "Sync BIM 360",
-    revitMock: "Push vers Revit declenche (mode démo, pas de connexion réelle Revit)",
+    revitMock: "Push vers Revit déclenche (mode démo, pas de connexion réelle Revit)",
     forgeMock: "Envoyé vers Autodesk Forge (mode démo, pas de connexion réelle)",
-    bim360Mock: "Sync BIM 360 declenche (mode démo, pas de connexion réelle)",
+    bim360Mock: "Sync BIM 360 déclenche (mode démo, pas de connexion réelle)",
     fallback: "Mode statique : la clé LLM sera ajoutée au prochain déploiement.",
     poweredBy: "Modèle :",
     note: "DEMO POC, aucune connexion réelle a Revit, Forge, BIM 360. L'IA imagine les mesures pour la démonstration.",
